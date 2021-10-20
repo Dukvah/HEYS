@@ -1,0 +1,526 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbHEYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLBilgiIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnvanterId" Type="int" />
+          <Property Name="UrunIsmi" Type="varchar" MaxLength="50" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="GirisTarihi" Type="date" />
+          <Property Name="GelisSebebi" Type="varchar" MaxLength="50" />
+          <Property Name="Durum" Type="varchar" MaxLength="50" />
+          <Property Name="CikisTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="TBLEnvanter">
+          <Key>
+            <PropertyRef Name="EnvanterID" />
+          </Key>
+          <Property Name="EnvanterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunIsmi" Type="varchar" MaxLength="50" />
+          <Property Name="StokDurum" Type="int" />
+          <Property Name="MalzemeDurum" Type="varchar" MaxLength="50" />
+          <Property Name="GirisTarihi" Type="date" />
+          <Property Name="BagliPersonel" Type="varchar" MaxLength="50" />
+          <Property Name="BagliBolum" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLHastaneBolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonelId" Type="int" />
+          <Property Name="BagliEnvanter" Type="int" />
+          <Property Name="BolumIsmi" Type="varchar" MaxLength="50" />
+          <Property Name="PersonelSayisi" Type="int" />
+          <Property Name="DahiliNo" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLKullanıcı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YetkiDurumu" Type="int" />
+          <Property Name="TCNo" Type="varchar" MaxLength="50" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" />
+          <Property Name="Parola" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="DahiliNo" Type="varchar" MaxLength="50" />
+          <Property Name="CalistigiBirim" Type="varchar" MaxLength="50" />
+          <Property Name="Fotograf" Type="image" />
+        </EntityType>
+        <EntityType Name="TBLPersonel">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BagliEnvanter" Type="int" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" />
+          <Property Name="TC" Type="varchar" MaxLength="50" />
+          <Property Name="Bolum" Type="int" />
+          <Property Name="Birim" Type="varchar" MaxLength="50" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLTeknikServis">
+          <Key>
+            <PropertyRef Name="ArizaID" />
+          </Key>
+          <Property Name="ArizaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnvanterId" Type="int" />
+          <Property Name="UrunIsmi" Type="varchar" MaxLength="50" />
+          <Property Name="Adet" Type="int" />
+          <Property Name="GelisTarihi" Type="date" />
+          <Property Name="GelisSebebi" Type="varchar" MaxLength="50" />
+          <Property Name="Durum" Type="varchar" MaxLength="50" />
+          <Property Name="CikisTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="TBLYetki">
+          <Key>
+            <PropertyRef Name="YetkiId" />
+          </Key>
+          <Property Name="YetkiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YetkiDurum" Type="int" />
+          <Property Name="Yetki" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TBLBilgiIslem_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLBilgiIslem" Type="Self.TBLBilgiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLBilgiIslem">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHastaneBolum_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLHastaneBolum" Type="Self.TBLHastaneBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLHastaneBolum">
+              <PropertyRef Name="BagliEnvanter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHastaneBolum_TBLPersonel">
+          <End Role="TBLPersonel" Type="Self.TBLPersonel" Multiplicity="0..1" />
+          <End Role="TBLHastaneBolum" Type="Self.TBLHastaneBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPersonel">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="TBLHastaneBolum">
+              <PropertyRef Name="PersonelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKullanıcı_TBLYetki">
+          <End Role="TBLYetki" Type="Self.TBLYetki" Multiplicity="0..1" />
+          <End Role="TBLKullanıcı" Type="Self.TBLKullanıcı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLYetki">
+              <PropertyRef Name="YetkiId" />
+            </Principal>
+            <Dependent Role="TBLKullanıcı">
+              <PropertyRef Name="YetkiDurumu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPersonel_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLPersonel" Type="Self.TBLPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLPersonel">
+              <PropertyRef Name="BagliEnvanter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLTeknikServis_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLTeknikServis" Type="Self.TBLTeknikServis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLTeknikServis">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbHEYSModelStoreContainer">
+          <EntitySet Name="TBLBilgiIslem" EntityType="Self.TBLBilgiIslem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLEnvanter" EntityType="Self.TBLEnvanter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLHastaneBolum" EntityType="Self.TBLHastaneBolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLKullanıcı" EntityType="Self.TBLKullanıcı" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLPersonel" EntityType="Self.TBLPersonel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTeknikServis" EntityType="Self.TBLTeknikServis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLYetki" EntityType="Self.TBLYetki" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBLBilgiIslem_TBLEnvanter" Association="Self.FK_TBLBilgiIslem_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLBilgiIslem" EntitySet="TBLBilgiIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHastaneBolum_TBLEnvanter" Association="Self.FK_TBLHastaneBolum_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLHastaneBolum" EntitySet="TBLHastaneBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHastaneBolum_TBLPersonel" Association="Self.FK_TBLHastaneBolum_TBLPersonel">
+            <End Role="TBLPersonel" EntitySet="TBLPersonel" />
+            <End Role="TBLHastaneBolum" EntitySet="TBLHastaneBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKullanıcı_TBLYetki" Association="Self.FK_TBLKullanıcı_TBLYetki">
+            <End Role="TBLYetki" EntitySet="TBLYetki" />
+            <End Role="TBLKullanıcı" EntitySet="TBLKullanıcı" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPersonel_TBLEnvanter" Association="Self.FK_TBLPersonel_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLPersonel" EntitySet="TBLPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLTeknikServis_TBLEnvanter" Association="Self.FK_TBLTeknikServis_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLTeknikServis" EntitySet="TBLTeknikServis" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbHEYSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLBilgiIslem">
+          <Key>
+            <PropertyRef Name="IslemID" />
+          </Key>
+          <Property Name="IslemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnvanterId" Type="Int32" />
+          <Property Name="UrunIsmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="GelisSebebi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CikisTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TBLEnvanter" Relationship="Self.FK_TBLBilgiIslem_TBLEnvanter" FromRole="TBLBilgiIslem" ToRole="TBLEnvanter" />
+        </EntityType>
+        <EntityType Name="TBLEnvanter">
+          <Key>
+            <PropertyRef Name="EnvanterID" />
+          </Key>
+          <Property Name="EnvanterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunIsmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StokDurum" Type="Int32" />
+          <Property Name="MalzemeDurum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GirisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="BagliPersonel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BagliBolum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLBilgiIslem" Relationship="Self.FK_TBLBilgiIslem_TBLEnvanter" FromRole="TBLEnvanter" ToRole="TBLBilgiIslem" />
+          <NavigationProperty Name="TBLHastaneBolum" Relationship="Self.FK_TBLHastaneBolum_TBLEnvanter" FromRole="TBLEnvanter" ToRole="TBLHastaneBolum" />
+          <NavigationProperty Name="TBLPersonel" Relationship="Self.FK_TBLPersonel_TBLEnvanter" FromRole="TBLEnvanter" ToRole="TBLPersonel" />
+          <NavigationProperty Name="TBLTeknikServis" Relationship="Self.FK_TBLTeknikServis_TBLEnvanter" FromRole="TBLEnvanter" ToRole="TBLTeknikServis" />
+        </EntityType>
+        <EntityType Name="TBLHastaneBolum">
+          <Key>
+            <PropertyRef Name="BolumID" />
+          </Key>
+          <Property Name="BolumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonelId" Type="Int32" />
+          <Property Name="BagliEnvanter" Type="Int32" />
+          <Property Name="BolumIsmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonelSayisi" Type="Int32" />
+          <Property Name="DahiliNo" Type="Int32" />
+          <NavigationProperty Name="TBLEnvanter" Relationship="Self.FK_TBLHastaneBolum_TBLEnvanter" FromRole="TBLHastaneBolum" ToRole="TBLEnvanter" />
+          <NavigationProperty Name="TBLPersonel" Relationship="Self.FK_TBLHastaneBolum_TBLPersonel" FromRole="TBLHastaneBolum" ToRole="TBLPersonel" />
+        </EntityType>
+        <EntityType Name="TBLKullanıcı">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YetkiDurumu" Type="Int32" />
+          <Property Name="TCNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DahiliNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CalistigiBirim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fotograf" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="TBLYetki" Relationship="Self.FK_TBLKullanıcı_TBLYetki" FromRole="TBLKullanıcı" ToRole="TBLYetki" />
+        </EntityType>
+        <EntityType Name="TBLPersonel">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BagliEnvanter" Type="Int32" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Bolum" Type="Int32" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLEnvanter" Relationship="Self.FK_TBLPersonel_TBLEnvanter" FromRole="TBLPersonel" ToRole="TBLEnvanter" />
+          <NavigationProperty Name="TBLHastaneBolum" Relationship="Self.FK_TBLHastaneBolum_TBLPersonel" FromRole="TBLPersonel" ToRole="TBLHastaneBolum" />
+        </EntityType>
+        <EntityType Name="TBLTeknikServis">
+          <Key>
+            <PropertyRef Name="ArizaID" />
+          </Key>
+          <Property Name="ArizaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnvanterId" Type="Int32" />
+          <Property Name="UrunIsmi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adet" Type="Int32" />
+          <Property Name="GelisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="GelisSebebi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CikisTarihi" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TBLEnvanter" Relationship="Self.FK_TBLTeknikServis_TBLEnvanter" FromRole="TBLTeknikServis" ToRole="TBLEnvanter" />
+        </EntityType>
+        <EntityType Name="TBLYetki">
+          <Key>
+            <PropertyRef Name="YetkiId" />
+          </Key>
+          <Property Name="YetkiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YetkiDurum" Type="Int32" />
+          <Property Name="Yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBLKullanıcı" Relationship="Self.FK_TBLKullanıcı_TBLYetki" FromRole="TBLYetki" ToRole="TBLKullanıcı" />
+        </EntityType>
+        <Association Name="FK_TBLBilgiIslem_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLBilgiIslem" Type="Self.TBLBilgiIslem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLBilgiIslem">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHastaneBolum_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLHastaneBolum" Type="Self.TBLHastaneBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLHastaneBolum">
+              <PropertyRef Name="BagliEnvanter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLPersonel_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLPersonel" Type="Self.TBLPersonel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLPersonel">
+              <PropertyRef Name="BagliEnvanter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLTeknikServis_TBLEnvanter">
+          <End Role="TBLEnvanter" Type="Self.TBLEnvanter" Multiplicity="0..1" />
+          <End Role="TBLTeknikServis" Type="Self.TBLTeknikServis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLEnvanter">
+              <PropertyRef Name="EnvanterID" />
+            </Principal>
+            <Dependent Role="TBLTeknikServis">
+              <PropertyRef Name="EnvanterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLHastaneBolum_TBLPersonel">
+          <End Role="TBLPersonel" Type="Self.TBLPersonel" Multiplicity="0..1" />
+          <End Role="TBLHastaneBolum" Type="Self.TBLHastaneBolum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLPersonel">
+              <PropertyRef Name="PersonelID" />
+            </Principal>
+            <Dependent Role="TBLHastaneBolum">
+              <PropertyRef Name="PersonelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLKullanıcı_TBLYetki">
+          <End Role="TBLYetki" Type="Self.TBLYetki" Multiplicity="0..1" />
+          <End Role="TBLKullanıcı" Type="Self.TBLKullanıcı" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBLYetki">
+              <PropertyRef Name="YetkiId" />
+            </Principal>
+            <Dependent Role="TBLKullanıcı">
+              <PropertyRef Name="YetkiDurumu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbHEYSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLBilgiIslem" EntityType="Self.TBLBilgiIslem" />
+          <EntitySet Name="TBLEnvanter" EntityType="Self.TBLEnvanter" />
+          <EntitySet Name="TBLHastaneBolum" EntityType="Self.TBLHastaneBolum" />
+          <EntitySet Name="TBLKullanıcı" EntityType="Self.TBLKullanıcı" />
+          <EntitySet Name="TBLPersonel" EntityType="Self.TBLPersonel" />
+          <EntitySet Name="TBLTeknikServis" EntityType="Self.TBLTeknikServis" />
+          <EntitySet Name="TBLYetki" EntityType="Self.TBLYetki" />
+          <AssociationSet Name="FK_TBLBilgiIslem_TBLEnvanter" Association="Self.FK_TBLBilgiIslem_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLBilgiIslem" EntitySet="TBLBilgiIslem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHastaneBolum_TBLEnvanter" Association="Self.FK_TBLHastaneBolum_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLHastaneBolum" EntitySet="TBLHastaneBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLPersonel_TBLEnvanter" Association="Self.FK_TBLPersonel_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLPersonel" EntitySet="TBLPersonel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLTeknikServis_TBLEnvanter" Association="Self.FK_TBLTeknikServis_TBLEnvanter">
+            <End Role="TBLEnvanter" EntitySet="TBLEnvanter" />
+            <End Role="TBLTeknikServis" EntitySet="TBLTeknikServis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLHastaneBolum_TBLPersonel" Association="Self.FK_TBLHastaneBolum_TBLPersonel">
+            <End Role="TBLPersonel" EntitySet="TBLPersonel" />
+            <End Role="TBLHastaneBolum" EntitySet="TBLHastaneBolum" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLKullanıcı_TBLYetki" Association="Self.FK_TBLKullanıcı_TBLYetki">
+            <End Role="TBLYetki" EntitySet="TBLYetki" />
+            <End Role="TBLKullanıcı" EntitySet="TBLKullanıcı" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbHEYSModelStoreContainer" CdmEntityContainer="DbHEYSEntities">
+          <EntitySetMapping Name="TBLBilgiIslem">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLBilgiIslem">
+              <MappingFragment StoreEntitySet="TBLBilgiIslem">
+                <ScalarProperty Name="IslemID" ColumnName="IslemID" />
+                <ScalarProperty Name="EnvanterId" ColumnName="EnvanterId" />
+                <ScalarProperty Name="UrunIsmi" ColumnName="UrunIsmi" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="GelisSebebi" ColumnName="GelisSebebi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="CikisTarihi" ColumnName="CikisTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLEnvanter">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLEnvanter">
+              <MappingFragment StoreEntitySet="TBLEnvanter">
+                <ScalarProperty Name="EnvanterID" ColumnName="EnvanterID" />
+                <ScalarProperty Name="UrunIsmi" ColumnName="UrunIsmi" />
+                <ScalarProperty Name="StokDurum" ColumnName="StokDurum" />
+                <ScalarProperty Name="MalzemeDurum" ColumnName="MalzemeDurum" />
+                <ScalarProperty Name="GirisTarihi" ColumnName="GirisTarihi" />
+                <ScalarProperty Name="BagliPersonel" ColumnName="BagliPersonel" />
+                <ScalarProperty Name="BagliBolum" ColumnName="BagliBolum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLHastaneBolum">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLHastaneBolum">
+              <MappingFragment StoreEntitySet="TBLHastaneBolum">
+                <ScalarProperty Name="BolumID" ColumnName="BolumID" />
+                <ScalarProperty Name="PersonelId" ColumnName="PersonelId" />
+                <ScalarProperty Name="BagliEnvanter" ColumnName="BagliEnvanter" />
+                <ScalarProperty Name="BolumIsmi" ColumnName="BolumIsmi" />
+                <ScalarProperty Name="PersonelSayisi" ColumnName="PersonelSayisi" />
+                <ScalarProperty Name="DahiliNo" ColumnName="DahiliNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLKullanıcı">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLKullanıcı">
+              <MappingFragment StoreEntitySet="TBLKullanıcı">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YetkiDurumu" ColumnName="YetkiDurumu" />
+                <ScalarProperty Name="TCNo" ColumnName="TCNo" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="DahiliNo" ColumnName="DahiliNo" />
+                <ScalarProperty Name="CalistigiBirim" ColumnName="CalistigiBirim" />
+                <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLPersonel">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLPersonel">
+              <MappingFragment StoreEntitySet="TBLPersonel">
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="BagliEnvanter" ColumnName="BagliEnvanter" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TC" ColumnName="TC" />
+                <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTeknikServis">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLTeknikServis">
+              <MappingFragment StoreEntitySet="TBLTeknikServis">
+                <ScalarProperty Name="ArizaID" ColumnName="ArizaID" />
+                <ScalarProperty Name="EnvanterId" ColumnName="EnvanterId" />
+                <ScalarProperty Name="UrunIsmi" ColumnName="UrunIsmi" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="GelisTarihi" ColumnName="GelisTarihi" />
+                <ScalarProperty Name="GelisSebebi" ColumnName="GelisSebebi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="CikisTarihi" ColumnName="CikisTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLYetki">
+            <EntityTypeMapping TypeName="DbHEYSModel.TBLYetki">
+              <MappingFragment StoreEntitySet="TBLYetki">
+                <ScalarProperty Name="YetkiId" ColumnName="YetkiId" />
+                <ScalarProperty Name="YetkiDurum" ColumnName="YetkiDurum" />
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
