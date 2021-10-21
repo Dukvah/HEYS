@@ -21,10 +21,15 @@ namespace HEYS
         private void FrmEnvanter_Load(object sender, EventArgs e)
         {
             EnvanterListele();
+            txtArama.Text = "Arama";
         }
         public void EnvanterListele()
         {
             dataGridEnvanter.DataSource = db.TBLEnvanter.ToList();
+            dataGridEnvanter.Columns[8].Visible = false;
+            dataGridEnvanter.Columns[9].Visible = false;
+            dataGridEnvanter.Columns[10].Visible = false;
+            dataGridEnvanter.Columns[11].Visible = false;
         }
         private void btnEnvanterEkle_Click(object sender, EventArgs e)
         {
@@ -149,6 +154,23 @@ namespace HEYS
         private void btnSiralaYenile_Click(object sender, EventArgs e)
         {
             EnvanterListele();
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            FrmMenu frmMenu = new FrmMenu();
+            this.Hide();
+            frmMenu.Show();
+        }
+
+        private void txtArama_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

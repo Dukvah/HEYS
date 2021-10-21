@@ -105,5 +105,10 @@ namespace HEYS
         {
             Application.Exit();
         }
+
+        private void txtKullaniciAdi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

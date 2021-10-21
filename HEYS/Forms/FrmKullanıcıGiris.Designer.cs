@@ -125,6 +125,7 @@ namespace HEYS
             this.txtKullaniciAdi.TabIndex = 2;
             this.txtKullaniciAdi.TabStop = false;
             this.txtKullaniciAdi.Click += new System.EventHandler(this.txtKullaniciAdi_Click);
+            this.txtKullaniciAdi.TextChanged += new System.EventHandler(this.txtKullaniciAdi_TextChanged);
             this.txtKullaniciAdi.Leave += new System.EventHandler(this.txtKullaniciAdi_Leave);
             // 
             // FrmKullanıcıGiris

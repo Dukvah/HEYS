@@ -60,20 +60,26 @@ namespace HEYS
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.rbtnTarihEski = new System.Windows.Forms.RadioButton();
+            this.rbtnAzalanStok = new System.Windows.Forms.RadioButton();
+            this.rbtnArtanStok = new System.Windows.Forms.RadioButton();
+            this.rbtnTarihYeni = new System.Windows.Forms.RadioButton();
+            this.rbtnAdaGoreTers = new System.Windows.Forms.RadioButton();
+            this.rbtnAdaGore = new System.Windows.Forms.RadioButton();
             this.btnSiralaYenile = new System.Windows.Forms.Button();
             this.btnEnvanterSirala = new System.Windows.Forms.Button();
-            this.rbtnAdaGore = new System.Windows.Forms.RadioButton();
-            this.rbtnAdaGoreTers = new System.Windows.Forms.RadioButton();
-            this.rbtnTarihYeni = new System.Windows.Forms.RadioButton();
-            this.rbtnArtanStok = new System.Windows.Forms.RadioButton();
-            this.rbtnAzalanStok = new System.Windows.Forms.RadioButton();
-            this.rbtnTarihEski = new System.Windows.Forms.RadioButton();
+            this.btnCikis = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtArama = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEnvanter)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -94,9 +100,9 @@ namespace HEYS
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(2, 76);
+            this.groupBox1.Location = new System.Drawing.Point(38, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(331, 459);
+            this.groupBox1.Size = new System.Drawing.Size(331, 478);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Envanter Ekle";
@@ -104,8 +110,10 @@ namespace HEYS
             // btnEnvanterTemizle
             // 
             this.btnEnvanterTemizle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnEnvanterTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnvanterTemizle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnvanterTemizle.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEnvanterTemizle.Location = new System.Drawing.Point(12, 394);
+            this.btnEnvanterTemizle.Location = new System.Drawing.Point(12, 410);
             this.btnEnvanterTemizle.Name = "btnEnvanterTemizle";
             this.btnEnvanterTemizle.Size = new System.Drawing.Size(135, 44);
             this.btnEnvanterTemizle.TabIndex = 13;
@@ -116,8 +124,10 @@ namespace HEYS
             // btnEnvanterEkle
             // 
             this.btnEnvanterEkle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnEnvanterEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnvanterEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnvanterEkle.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEnvanterEkle.Location = new System.Drawing.Point(178, 394);
+            this.btnEnvanterEkle.Location = new System.Drawing.Point(178, 410);
             this.btnEnvanterEkle.Name = "btnEnvanterEkle";
             this.btnEnvanterEkle.Size = new System.Drawing.Size(135, 44);
             this.btnEnvanterEkle.TabIndex = 12;
@@ -141,10 +151,11 @@ namespace HEYS
             // 
             // dtpEnvanterTarih
             // 
+            this.dtpEnvanterTarih.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpEnvanterTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEnvanterTarih.Location = new System.Drawing.Point(175, 226);
             this.dtpEnvanterTarih.Name = "dtpEnvanterTarih";
-            this.dtpEnvanterTarih.Size = new System.Drawing.Size(138, 29);
+            this.dtpEnvanterTarih.Size = new System.Drawing.Size(138, 26);
             this.dtpEnvanterTarih.TabIndex = 9;
             // 
             // cbEnvanterMalzemeDurum
@@ -238,9 +249,10 @@ namespace HEYS
             this.dataGridEnvanter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridEnvanter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sil});
-            this.dataGridEnvanter.Location = new System.Drawing.Point(370, 76);
+            this.dataGridEnvanter.Location = new System.Drawing.Point(447, 112);
             this.dataGridEnvanter.Name = "dataGridEnvanter";
-            this.dataGridEnvanter.Size = new System.Drawing.Size(555, 417);
+            this.dataGridEnvanter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridEnvanter.Size = new System.Drawing.Size(1103, 903);
             this.dataGridEnvanter.TabIndex = 1;
             this.dataGridEnvanter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEnvanter_CellContentClick);
             // 
@@ -248,10 +260,13 @@ namespace HEYS
             // 
             this.Sil.HeaderText = "";
             this.Sil.Name = "Sil";
+            this.Sil.ReadOnly = true;
             this.Sil.Text = "Sil";
+            this.Sil.UseColumnTextForButtonValue = true;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.cbArizaBirim);
@@ -266,9 +281,9 @@ namespace HEYS
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(2, 541);
+            this.groupBox2.Location = new System.Drawing.Point(38, 575);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(331, 459);
+            this.groupBox2.Size = new System.Drawing.Size(331, 438);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Arıza Kaydı Oluştur";
@@ -297,8 +312,10 @@ namespace HEYS
             // btnArizaTemizle
             // 
             this.btnArizaTemizle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnArizaTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArizaTemizle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArizaTemizle.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnArizaTemizle.Location = new System.Drawing.Point(12, 344);
+            this.btnArizaTemizle.Location = new System.Drawing.Point(12, 356);
             this.btnArizaTemizle.Name = "btnArizaTemizle";
             this.btnArizaTemizle.Size = new System.Drawing.Size(135, 44);
             this.btnArizaTemizle.TabIndex = 13;
@@ -309,8 +326,10 @@ namespace HEYS
             // btnArizaGonder
             // 
             this.btnArizaGonder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnArizaGonder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArizaGonder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArizaGonder.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnArizaGonder.Location = new System.Drawing.Point(181, 344);
+            this.btnArizaGonder.Location = new System.Drawing.Point(181, 356);
             this.btnArizaGonder.Name = "btnArizaGonder";
             this.btnArizaGonder.Size = new System.Drawing.Size(135, 44);
             this.btnArizaGonder.TabIndex = 12;
@@ -388,19 +407,9 @@ namespace HEYS
             this.label12.TabIndex = 0;
             this.label12.Text = "Ürün Adı :";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox3.Location = new System.Drawing.Point(370, 533);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(732, 145);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Filtrele";
-            // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.BackColor = System.Drawing.Color.Transparent;
             this.groupBox4.Controls.Add(this.rbtnTarihEski);
             this.groupBox4.Controls.Add(this.rbtnAzalanStok);
@@ -411,18 +420,98 @@ namespace HEYS
             this.groupBox4.Controls.Add(this.btnSiralaYenile);
             this.groupBox4.Controls.Add(this.btnEnvanterSirala);
             this.groupBox4.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.Location = new System.Drawing.Point(958, 49);
+            this.groupBox4.Location = new System.Drawing.Point(1623, 402);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(231, 379);
+            this.groupBox4.Size = new System.Drawing.Size(256, 602);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Sırala";
             // 
+            // rbtnTarihEski
+            // 
+            this.rbtnTarihEski.AutoSize = true;
+            this.rbtnTarihEski.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnTarihEski.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnTarihEski.Location = new System.Drawing.Point(32, 278);
+            this.rbtnTarihEski.Name = "rbtnTarihEski";
+            this.rbtnTarihEski.Size = new System.Drawing.Size(156, 27);
+            this.rbtnTarihEski.TabIndex = 20;
+            this.rbtnTarihEski.TabStop = true;
+            this.rbtnTarihEski.Text = "Eskiden Yeniye";
+            this.rbtnTarihEski.UseVisualStyleBackColor = true;
+            // 
+            // rbtnAzalanStok
+            // 
+            this.rbtnAzalanStok.AutoSize = true;
+            this.rbtnAzalanStok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnAzalanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnAzalanStok.Location = new System.Drawing.Point(32, 414);
+            this.rbtnAzalanStok.Name = "rbtnAzalanStok";
+            this.rbtnAzalanStok.Size = new System.Drawing.Size(128, 27);
+            this.rbtnAzalanStok.TabIndex = 19;
+            this.rbtnAzalanStok.TabStop = true;
+            this.rbtnAzalanStok.Text = "Azalan Stok";
+            this.rbtnAzalanStok.UseVisualStyleBackColor = true;
+            // 
+            // rbtnArtanStok
+            // 
+            this.rbtnArtanStok.AutoSize = true;
+            this.rbtnArtanStok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnArtanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnArtanStok.Location = new System.Drawing.Point(32, 344);
+            this.rbtnArtanStok.Name = "rbtnArtanStok";
+            this.rbtnArtanStok.Size = new System.Drawing.Size(120, 27);
+            this.rbtnArtanStok.TabIndex = 18;
+            this.rbtnArtanStok.TabStop = true;
+            this.rbtnArtanStok.Text = "Artan Stok";
+            this.rbtnArtanStok.UseVisualStyleBackColor = true;
+            // 
+            // rbtnTarihYeni
+            // 
+            this.rbtnTarihYeni.AutoSize = true;
+            this.rbtnTarihYeni.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnTarihYeni.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnTarihYeni.Location = new System.Drawing.Point(32, 210);
+            this.rbtnTarihYeni.Name = "rbtnTarihYeni";
+            this.rbtnTarihYeni.Size = new System.Drawing.Size(156, 27);
+            this.rbtnTarihYeni.TabIndex = 17;
+            this.rbtnTarihYeni.TabStop = true;
+            this.rbtnTarihYeni.Text = "Yeniden Eskiye";
+            this.rbtnTarihYeni.UseVisualStyleBackColor = true;
+            // 
+            // rbtnAdaGoreTers
+            // 
+            this.rbtnAdaGoreTers.AutoSize = true;
+            this.rbtnAdaGoreTers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnAdaGoreTers.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnAdaGoreTers.Location = new System.Drawing.Point(32, 141);
+            this.rbtnAdaGoreTers.Name = "rbtnAdaGoreTers";
+            this.rbtnAdaGoreTers.Size = new System.Drawing.Size(138, 27);
+            this.rbtnAdaGoreTers.TabIndex = 16;
+            this.rbtnAdaGoreTers.TabStop = true;
+            this.rbtnAdaGoreTers.Text = "İsim (Z -> A)\r\n";
+            this.rbtnAdaGoreTers.UseVisualStyleBackColor = true;
+            // 
+            // rbtnAdaGore
+            // 
+            this.rbtnAdaGore.AutoSize = true;
+            this.rbtnAdaGore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rbtnAdaGore.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.rbtnAdaGore.Location = new System.Drawing.Point(32, 70);
+            this.rbtnAdaGore.Name = "rbtnAdaGore";
+            this.rbtnAdaGore.Size = new System.Drawing.Size(138, 27);
+            this.rbtnAdaGore.TabIndex = 15;
+            this.rbtnAdaGore.TabStop = true;
+            this.rbtnAdaGore.Text = "İsim (A -> Z)\r\n";
+            this.rbtnAdaGore.UseVisualStyleBackColor = true;
+            // 
             // btnSiralaYenile
             // 
             this.btnSiralaYenile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnSiralaYenile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSiralaYenile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiralaYenile.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSiralaYenile.Location = new System.Drawing.Point(123, 329);
+            this.btnSiralaYenile.Location = new System.Drawing.Point(135, 522);
             this.btnSiralaYenile.Name = "btnSiralaYenile";
             this.btnSiralaYenile.Size = new System.Drawing.Size(101, 31);
             this.btnSiralaYenile.TabIndex = 14;
@@ -433,8 +522,10 @@ namespace HEYS
             // btnEnvanterSirala
             // 
             this.btnEnvanterSirala.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnEnvanterSirala.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEnvanterSirala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnvanterSirala.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEnvanterSirala.Location = new System.Drawing.Point(16, 329);
+            this.btnEnvanterSirala.Location = new System.Drawing.Point(15, 522);
             this.btnEnvanterSirala.Name = "btnEnvanterSirala";
             this.btnEnvanterSirala.Size = new System.Drawing.Size(101, 31);
             this.btnEnvanterSirala.TabIndex = 13;
@@ -442,83 +533,73 @@ namespace HEYS
             this.btnEnvanterSirala.UseVisualStyleBackColor = false;
             this.btnEnvanterSirala.Click += new System.EventHandler(this.btnEnvanterSirala_Click);
             // 
-            // rbtnAdaGore
+            // btnCikis
             // 
-            this.rbtnAdaGore.AutoSize = true;
-            this.rbtnAdaGore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnAdaGore.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAdaGore.Location = new System.Drawing.Point(32, 52);
-            this.rbtnAdaGore.Name = "rbtnAdaGore";
-            this.rbtnAdaGore.Size = new System.Drawing.Size(138, 27);
-            this.rbtnAdaGore.TabIndex = 15;
-            this.rbtnAdaGore.TabStop = true;
-            this.rbtnAdaGore.Text = "İsim (A -> Z)\r\n";
-            this.rbtnAdaGore.UseVisualStyleBackColor = true;
+            this.btnCikis.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCikis.BackColor = System.Drawing.Color.DarkRed;
+            this.btnCikis.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCikis.BackgroundImage")));
+            this.btnCikis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCikis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCikis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCikis.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCikis.ForeColor = System.Drawing.Color.White;
+            this.btnCikis.Location = new System.Drawing.Point(1888, 12);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(40, 40);
+            this.btnCikis.TabIndex = 21;
+            this.btnCikis.UseVisualStyleBackColor = false;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
-            // rbtnAdaGoreTers
+            // btnBack
             // 
-            this.rbtnAdaGoreTers.AutoSize = true;
-            this.rbtnAdaGoreTers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnAdaGoreTers.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAdaGoreTers.Location = new System.Drawing.Point(32, 98);
-            this.rbtnAdaGoreTers.Name = "rbtnAdaGoreTers";
-            this.rbtnAdaGoreTers.Size = new System.Drawing.Size(138, 27);
-            this.rbtnAdaGoreTers.TabIndex = 16;
-            this.rbtnAdaGoreTers.TabStop = true;
-            this.rbtnAdaGoreTers.Text = "İsim (Z -> A)\r\n";
-            this.rbtnAdaGoreTers.UseVisualStyleBackColor = true;
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBack.ForeColor = System.Drawing.Color.Transparent;
+            this.btnBack.Location = new System.Drawing.Point(1832, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
+            this.btnBack.TabIndex = 22;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // rbtnTarihYeni
+            // groupBox3
             // 
-            this.rbtnTarihYeni.AutoSize = true;
-            this.rbtnTarihYeni.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnTarihYeni.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnTarihYeni.Location = new System.Drawing.Point(32, 142);
-            this.rbtnTarihYeni.Name = "rbtnTarihYeni";
-            this.rbtnTarihYeni.Size = new System.Drawing.Size(156, 27);
-            this.rbtnTarihYeni.TabIndex = 17;
-            this.rbtnTarihYeni.TabStop = true;
-            this.rbtnTarihYeni.Text = "Yeniden Eskiye";
-            this.rbtnTarihYeni.UseVisualStyleBackColor = true;
+            this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.txtArama);
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Location = new System.Drawing.Point(1623, 79);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(256, 298);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Arama";
             // 
-            // rbtnArtanStok
+            // txtArama
             // 
-            this.rbtnArtanStok.AutoSize = true;
-            this.rbtnArtanStok.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnArtanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnArtanStok.Location = new System.Drawing.Point(32, 230);
-            this.rbtnArtanStok.Name = "rbtnArtanStok";
-            this.rbtnArtanStok.Size = new System.Drawing.Size(120, 27);
-            this.rbtnArtanStok.TabIndex = 18;
-            this.rbtnArtanStok.TabStop = true;
-            this.rbtnArtanStok.Text = "Artan Stok";
-            this.rbtnArtanStok.UseVisualStyleBackColor = true;
+            this.txtArama.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtArama.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtArama.Location = new System.Drawing.Point(61, 105);
+            this.txtArama.Name = "txtArama";
+            this.txtArama.Size = new System.Drawing.Size(175, 25);
+            this.txtArama.TabIndex = 3;
+            this.txtArama.TabStop = false;
+            this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
             // 
-            // rbtnAzalanStok
+            // pictureBox1
             // 
-            this.rbtnAzalanStok.AutoSize = true;
-            this.rbtnAzalanStok.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnAzalanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAzalanStok.Location = new System.Drawing.Point(32, 274);
-            this.rbtnAzalanStok.Name = "rbtnAzalanStok";
-            this.rbtnAzalanStok.Size = new System.Drawing.Size(128, 27);
-            this.rbtnAzalanStok.TabIndex = 19;
-            this.rbtnAzalanStok.TabStop = true;
-            this.rbtnAzalanStok.Text = "Azalan Stok";
-            this.rbtnAzalanStok.UseVisualStyleBackColor = true;
-            // 
-            // rbtnTarihEski
-            // 
-            this.rbtnTarihEski.AutoSize = true;
-            this.rbtnTarihEski.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rbtnTarihEski.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnTarihEski.Location = new System.Drawing.Point(32, 185);
-            this.rbtnTarihEski.Name = "rbtnTarihEski";
-            this.rbtnTarihEski.Size = new System.Drawing.Size(156, 27);
-            this.rbtnTarihEski.TabIndex = 20;
-            this.rbtnTarihEski.TabStop = true;
-            this.rbtnTarihEski.Text = "Eskiden Yeniye";
-            this.rbtnTarihEski.UseVisualStyleBackColor = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(15, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmEnvanter
             // 
@@ -526,12 +607,15 @@ namespace HEYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1217, 684);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(1940, 1061);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.btnCikis);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridEnvanter);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEnvanter";
             this.Text = "FrmEnvanter";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -543,6 +627,9 @@ namespace HEYS
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -578,16 +665,20 @@ namespace HEYS
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbArizaBirim;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnSiralaYenile;
         private System.Windows.Forms.Button btnEnvanterSirala;
-        private System.Windows.Forms.DataGridViewButtonColumn Sil;
         private System.Windows.Forms.RadioButton rbtnAdaGore;
         private System.Windows.Forms.RadioButton rbtnTarihYeni;
         private System.Windows.Forms.RadioButton rbtnAdaGoreTers;
         private System.Windows.Forms.RadioButton rbtnAzalanStok;
         private System.Windows.Forms.RadioButton rbtnArtanStok;
         private System.Windows.Forms.RadioButton rbtnTarihEski;
+        private System.Windows.Forms.DataGridViewButtonColumn Sil;
+        private System.Windows.Forms.Button btnCikis;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtArama;
     }
 }
