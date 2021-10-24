@@ -72,14 +72,24 @@ namespace HEYS
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAra = new System.Windows.Forms.Button();
             this.txtArama = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblToplamStok = new System.Windows.Forms.Label();
+            this.lblEnvanterSayisi = new System.Windows.Forms.Label();
+            this.btnExcel = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl123 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEnvanter)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -137,6 +147,7 @@ namespace HEYS
             // 
             // tbEnvanterSorumluBolum
             // 
+            this.tbEnvanterSorumluBolum.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbEnvanterSorumluBolum.Location = new System.Drawing.Point(175, 341);
             this.tbEnvanterSorumluBolum.Name = "tbEnvanterSorumluBolum";
             this.tbEnvanterSorumluBolum.Size = new System.Drawing.Size(138, 29);
@@ -144,6 +155,7 @@ namespace HEYS
             // 
             // tbEnvanterSorumluPersonel
             // 
+            this.tbEnvanterSorumluPersonel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbEnvanterSorumluPersonel.Location = new System.Drawing.Point(175, 287);
             this.tbEnvanterSorumluPersonel.Name = "tbEnvanterSorumluPersonel";
             this.tbEnvanterSorumluPersonel.Size = new System.Drawing.Size(138, 29);
@@ -151,6 +163,7 @@ namespace HEYS
             // 
             // dtpEnvanterTarih
             // 
+            this.dtpEnvanterTarih.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpEnvanterTarih.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpEnvanterTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpEnvanterTarih.Location = new System.Drawing.Point(175, 226);
@@ -160,6 +173,8 @@ namespace HEYS
             // 
             // cbEnvanterMalzemeDurum
             // 
+            this.cbEnvanterMalzemeDurum.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbEnvanterMalzemeDurum.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbEnvanterMalzemeDurum.FormattingEnabled = true;
             this.cbEnvanterMalzemeDurum.Items.AddRange(new object[] {
             "Demirbaş",
@@ -171,6 +186,7 @@ namespace HEYS
             // 
             // tbEnvanterAdet
             // 
+            this.tbEnvanterAdet.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbEnvanterAdet.Location = new System.Drawing.Point(175, 108);
             this.tbEnvanterAdet.Name = "tbEnvanterAdet";
             this.tbEnvanterAdet.Size = new System.Drawing.Size(138, 29);
@@ -178,6 +194,7 @@ namespace HEYS
             // 
             // tbEnvanterUrunIsim
             // 
+            this.tbEnvanterUrunIsim.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbEnvanterUrunIsim.Location = new System.Drawing.Point(175, 49);
             this.tbEnvanterUrunIsim.Name = "tbEnvanterUrunIsim";
             this.tbEnvanterUrunIsim.Size = new System.Drawing.Size(138, 29);
@@ -300,6 +317,8 @@ namespace HEYS
             // 
             // cbArizaBirim
             // 
+            this.cbArizaBirim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbArizaBirim.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbArizaBirim.FormattingEnabled = true;
             this.cbArizaBirim.Items.AddRange(new object[] {
             "Teknik Servis",
@@ -339,6 +358,7 @@ namespace HEYS
             // 
             // tbArizaGonderimSebebi
             // 
+            this.tbArizaGonderimSebebi.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbArizaGonderimSebebi.Location = new System.Drawing.Point(178, 228);
             this.tbArizaGonderimSebebi.Multiline = true;
             this.tbArizaGonderimSebebi.Name = "tbArizaGonderimSebebi";
@@ -347,14 +367,16 @@ namespace HEYS
             // 
             // dtpArizaTarih
             // 
+            this.dtpArizaTarih.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.dtpArizaTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpArizaTarih.Location = new System.Drawing.Point(178, 170);
             this.dtpArizaTarih.Name = "dtpArizaTarih";
-            this.dtpArizaTarih.Size = new System.Drawing.Size(138, 29);
+            this.dtpArizaTarih.Size = new System.Drawing.Size(138, 26);
             this.dtpArizaTarih.TabIndex = 9;
             // 
             // tbArizaAdet
             // 
+            this.tbArizaAdet.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbArizaAdet.Location = new System.Drawing.Point(178, 108);
             this.tbArizaAdet.Name = "tbArizaAdet";
             this.tbArizaAdet.Size = new System.Drawing.Size(138, 29);
@@ -362,6 +384,7 @@ namespace HEYS
             // 
             // tbArizaUrunIsim
             // 
+            this.tbArizaUrunIsim.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbArizaUrunIsim.Location = new System.Drawing.Point(178, 49);
             this.tbArizaUrunIsim.Name = "tbArizaUrunIsim";
             this.tbArizaUrunIsim.Size = new System.Drawing.Size(138, 29);
@@ -420,9 +443,9 @@ namespace HEYS
             this.groupBox4.Controls.Add(this.btnSiralaYenile);
             this.groupBox4.Controls.Add(this.btnEnvanterSirala);
             this.groupBox4.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.Location = new System.Drawing.Point(1623, 402);
+            this.groupBox4.Location = new System.Drawing.Point(1623, 219);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(256, 602);
+            this.groupBox4.Size = new System.Drawing.Size(256, 480);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Sırala";
@@ -432,7 +455,7 @@ namespace HEYS
             this.rbtnTarihEski.AutoSize = true;
             this.rbtnTarihEski.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnTarihEski.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnTarihEski.Location = new System.Drawing.Point(32, 278);
+            this.rbtnTarihEski.Location = new System.Drawing.Point(32, 237);
             this.rbtnTarihEski.Name = "rbtnTarihEski";
             this.rbtnTarihEski.Size = new System.Drawing.Size(156, 27);
             this.rbtnTarihEski.TabIndex = 20;
@@ -445,7 +468,7 @@ namespace HEYS
             this.rbtnAzalanStok.AutoSize = true;
             this.rbtnAzalanStok.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnAzalanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAzalanStok.Location = new System.Drawing.Point(32, 414);
+            this.rbtnAzalanStok.Location = new System.Drawing.Point(32, 356);
             this.rbtnAzalanStok.Name = "rbtnAzalanStok";
             this.rbtnAzalanStok.Size = new System.Drawing.Size(128, 27);
             this.rbtnAzalanStok.TabIndex = 19;
@@ -458,7 +481,7 @@ namespace HEYS
             this.rbtnArtanStok.AutoSize = true;
             this.rbtnArtanStok.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnArtanStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnArtanStok.Location = new System.Drawing.Point(32, 344);
+            this.rbtnArtanStok.Location = new System.Drawing.Point(32, 298);
             this.rbtnArtanStok.Name = "rbtnArtanStok";
             this.rbtnArtanStok.Size = new System.Drawing.Size(120, 27);
             this.rbtnArtanStok.TabIndex = 18;
@@ -471,7 +494,7 @@ namespace HEYS
             this.rbtnTarihYeni.AutoSize = true;
             this.rbtnTarihYeni.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnTarihYeni.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnTarihYeni.Location = new System.Drawing.Point(32, 210);
+            this.rbtnTarihYeni.Location = new System.Drawing.Point(32, 178);
             this.rbtnTarihYeni.Name = "rbtnTarihYeni";
             this.rbtnTarihYeni.Size = new System.Drawing.Size(156, 27);
             this.rbtnTarihYeni.TabIndex = 17;
@@ -484,7 +507,7 @@ namespace HEYS
             this.rbtnAdaGoreTers.AutoSize = true;
             this.rbtnAdaGoreTers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnAdaGoreTers.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAdaGoreTers.Location = new System.Drawing.Point(32, 141);
+            this.rbtnAdaGoreTers.Location = new System.Drawing.Point(32, 116);
             this.rbtnAdaGoreTers.Name = "rbtnAdaGoreTers";
             this.rbtnAdaGoreTers.Size = new System.Drawing.Size(138, 27);
             this.rbtnAdaGoreTers.TabIndex = 16;
@@ -497,7 +520,7 @@ namespace HEYS
             this.rbtnAdaGore.AutoSize = true;
             this.rbtnAdaGore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnAdaGore.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rbtnAdaGore.Location = new System.Drawing.Point(32, 70);
+            this.rbtnAdaGore.Location = new System.Drawing.Point(32, 54);
             this.rbtnAdaGore.Name = "rbtnAdaGore";
             this.rbtnAdaGore.Size = new System.Drawing.Size(138, 27);
             this.rbtnAdaGore.TabIndex = 15;
@@ -511,7 +534,7 @@ namespace HEYS
             this.btnSiralaYenile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSiralaYenile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSiralaYenile.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSiralaYenile.Location = new System.Drawing.Point(135, 522);
+            this.btnSiralaYenile.Location = new System.Drawing.Point(135, 419);
             this.btnSiralaYenile.Name = "btnSiralaYenile";
             this.btnSiralaYenile.Size = new System.Drawing.Size(101, 31);
             this.btnSiralaYenile.TabIndex = 14;
@@ -525,7 +548,7 @@ namespace HEYS
             this.btnEnvanterSirala.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEnvanterSirala.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnvanterSirala.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEnvanterSirala.Location = new System.Drawing.Point(15, 522);
+            this.btnEnvanterSirala.Location = new System.Drawing.Point(13, 419);
             this.btnEnvanterSirala.Name = "btnEnvanterSirala";
             this.btnEnvanterSirala.Size = new System.Drawing.Size(101, 31);
             this.btnEnvanterSirala.TabIndex = 13;
@@ -569,37 +592,136 @@ namespace HEYS
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.btnAra);
             this.groupBox3.Controls.Add(this.txtArama);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(1623, 79);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(256, 298);
+            this.groupBox3.Size = new System.Drawing.Size(256, 134);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Arama";
             // 
+            // btnAra
+            // 
+            this.btnAra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnAra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAra.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAra.Location = new System.Drawing.Point(176, 84);
+            this.btnAra.Name = "btnAra";
+            this.btnAra.Size = new System.Drawing.Size(60, 33);
+            this.btnAra.TabIndex = 14;
+            this.btnAra.Text = "Ara";
+            this.btnAra.UseVisualStyleBackColor = false;
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
+            // 
             // txtArama
             // 
-            this.txtArama.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtArama.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtArama.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtArama.Location = new System.Drawing.Point(61, 105);
+            this.txtArama.Location = new System.Drawing.Point(61, 53);
             this.txtArama.Name = "txtArama";
             this.txtArama.Size = new System.Drawing.Size(175, 25);
             this.txtArama.TabIndex = 3;
             this.txtArama.TabStop = false;
-            this.txtArama.TextChanged += new System.EventHandler(this.txtArama_TextChanged);
+            this.txtArama.Click += new System.EventHandler(this.txtArama_Click);
+            this.txtArama.Leave += new System.EventHandler(this.txtArama_Leave);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 53);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.pictureBox2);
+            this.groupBox5.Controls.Add(this.lblToplamStok);
+            this.groupBox5.Controls.Add(this.lblEnvanterSayisi);
+            this.groupBox5.Controls.Add(this.btnExcel);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.lbl123);
+            this.groupBox5.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox5.Location = new System.Drawing.Point(1623, 718);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(256, 283);
+            this.groupBox5.TabIndex = 29;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Rapor";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(183, 206);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(65, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblToplamStok
+            // 
+            this.lblToplamStok.AutoSize = true;
+            this.lblToplamStok.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblToplamStok.Location = new System.Drawing.Point(179, 137);
+            this.lblToplamStok.Name = "lblToplamStok";
+            this.lblToplamStok.Size = new System.Drawing.Size(17, 23);
+            this.lblToplamStok.TabIndex = 16;
+            this.lblToplamStok.Text = "-";
+            // 
+            // lblEnvanterSayisi
+            // 
+            this.lblEnvanterSayisi.AutoSize = true;
+            this.lblEnvanterSayisi.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblEnvanterSayisi.Location = new System.Drawing.Point(179, 67);
+            this.lblEnvanterSayisi.Name = "lblEnvanterSayisi";
+            this.lblEnvanterSayisi.Size = new System.Drawing.Size(17, 23);
+            this.lblEnvanterSayisi.TabIndex = 15;
+            this.lblEnvanterSayisi.Text = "-";
+            // 
+            // btnExcel
+            // 
+            this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcel.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnExcel.Location = new System.Drawing.Point(13, 216);
+            this.btnExcel.Name = "btnExcel";
+            this.btnExcel.Size = new System.Drawing.Size(164, 40);
+            this.btnExcel.TabIndex = 14;
+            this.btnExcel.Text = "Excele Aktar";
+            this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(11, 137);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(129, 23);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Toplam Stok :";
+            // 
+            // lbl123
+            // 
+            this.lbl123.AutoSize = true;
+            this.lbl123.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl123.Location = new System.Drawing.Point(9, 67);
+            this.lbl123.Name = "lbl123";
+            this.lbl123.Size = new System.Drawing.Size(153, 23);
+            this.lbl123.TabIndex = 1;
+            this.lbl123.Text = "Envanter Sayısı :";
             // 
             // FrmEnvanter
             // 
@@ -608,6 +730,7 @@ namespace HEYS
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1940, 1061);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCikis);
@@ -630,6 +753,9 @@ namespace HEYS
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -680,5 +806,13 @@ namespace HEYS
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtArama;
+        private System.Windows.Forms.Button btnAra;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblToplamStok;
+        private System.Windows.Forms.Label lblEnvanterSayisi;
+        private System.Windows.Forms.Button btnExcel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lbl123;
     }
 }

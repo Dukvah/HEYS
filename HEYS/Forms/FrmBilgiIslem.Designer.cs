@@ -55,6 +55,7 @@ namespace HEYS
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAyarlaraGit = new System.Windows.Forms.Button();
+            this.btnAra = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -163,6 +164,7 @@ namespace HEYS
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox3.Controls.Add(this.btnAra);
             this.groupBox3.Controls.Add(this.txtArama);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold);
@@ -175,12 +177,15 @@ namespace HEYS
             // 
             // txtArama
             // 
-            this.txtArama.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtArama.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtArama.Font = new System.Drawing.Font("Georgia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtArama.Location = new System.Drawing.Point(61, 105);
             this.txtArama.Name = "txtArama";
-            this.txtArama.Size = new System.Drawing.Size(175, 29);
+            this.txtArama.Size = new System.Drawing.Size(175, 25);
             this.txtArama.TabIndex = 3;
             this.txtArama.TabStop = false;
+            this.txtArama.Click += new System.EventHandler(this.txtArama_Click);
+            this.txtArama.Leave += new System.EventHandler(this.txtArama_Leave);
             // 
             // pictureBox1
             // 
@@ -205,7 +210,7 @@ namespace HEYS
             this.groupBox4.Controls.Add(this.btnSiralaYenile);
             this.groupBox4.Controls.Add(this.btnEnvanterSirala);
             this.groupBox4.Font = new System.Drawing.Font("Georgia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.Location = new System.Drawing.Point(1623, 446);
+            this.groupBox4.Location = new System.Drawing.Point(1623, 407);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(276, 608);
             this.groupBox4.TabIndex = 26;
@@ -302,6 +307,7 @@ namespace HEYS
             this.btnSiralaYenile.TabIndex = 14;
             this.btnSiralaYenile.Text = "Yenile";
             this.btnSiralaYenile.UseVisualStyleBackColor = false;
+            this.btnSiralaYenile.Click += new System.EventHandler(this.btnSiralaYenile_Click);
             // 
             // btnEnvanterSirala
             // 
@@ -315,6 +321,7 @@ namespace HEYS
             this.btnEnvanterSirala.TabIndex = 13;
             this.btnEnvanterSirala.Text = "Sırala";
             this.btnEnvanterSirala.UseVisualStyleBackColor = false;
+            this.btnEnvanterSirala.Click += new System.EventHandler(this.btnEnvanterSirala_Click);
             // 
             // dataGridBilgiIslem
             // 
@@ -377,6 +384,20 @@ namespace HEYS
             this.btnAyarlaraGit.UseVisualStyleBackColor = false;
             this.btnAyarlaraGit.Click += new System.EventHandler(this.btnAyarlaraGit_Click);
             // 
+            // btnAra
+            // 
+            this.btnAra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnAra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAra.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAra.Location = new System.Drawing.Point(176, 150);
+            this.btnAra.Name = "btnAra";
+            this.btnAra.Size = new System.Drawing.Size(60, 33);
+            this.btnAra.TabIndex = 16;
+            this.btnAra.Text = "Ara";
+            this.btnAra.UseVisualStyleBackColor = false;
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
+            // 
             // FrmBilgiIslem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,5 +456,6 @@ namespace HEYS
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnAyarlaraGit;
+        private System.Windows.Forms.Button btnAra;
     }
 }

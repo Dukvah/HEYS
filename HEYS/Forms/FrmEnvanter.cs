@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
+using Workbook = Microsoft.Office.Interop.Excel.Workbook;
+
 
 namespace HEYS
 {
@@ -30,6 +34,19 @@ namespace HEYS
             dataGridEnvanter.Columns[9].Visible = false;
             dataGridEnvanter.Columns[10].Visible = false;
             dataGridEnvanter.Columns[11].Visible = false;
+            lblEnvanterSayisi.Text = Convert.ToString(dataGridEnvanter.RowCount);
+            var sorgu = from p in db.TBLEnvanter
+                        where p.StokDurum != null
+                        select p;
+            int a = 0;
+            if (sorgu.Any())
+            {
+                foreach (var p in sorgu)
+                {
+                    a += p.StokDurum.Value;
+                }
+                lblToplamStok.Text = Convert.ToString(a);
+            }
         }
         private void btnEnvanterEkle_Click(object sender, EventArgs e)
         {
@@ -53,7 +70,7 @@ namespace HEYS
 
             }
         }
-        public void DeleteMusteri(int id)
+        public void DeleteEnvanter(int id)
         {
 
             var sorgu = db.TBLEnvanter.Find(id);
@@ -109,13 +126,12 @@ namespace HEYS
             if (e.ColumnIndex == 0)
             {
                 int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[1].Value.ToString());
-                DeleteMusteri(id);
+                DeleteEnvanter(id);
                 EnvanterListele();
                 tbArizaUrunIsim.Text = "";
                 tbArizaAdet.Text = "";
             }
         }
-
         private void btnEnvanterSirala_Click(object sender, EventArgs e)
         {
             if (rbtnAdaGore.Checked == true)
@@ -158,7 +174,7 @@ namespace HEYS
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -167,10 +183,51 @@ namespace HEYS
             this.Hide();
             frmMenu.Show();
         }
-
-        private void txtArama_TextChanged(object sender, EventArgs e)
+        private void txtArama_Click(object sender, EventArgs e)
         {
+            if (txtArama.Text == "Arama")
+            {
+                txtArama.Text = "";
+            }
+        }
 
+        private void txtArama_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtArama.Text))
+            {
+                txtArama.Text = "Arama";
+            }
+        }
+
+        private void btnAra_Click(object sender, EventArgs e)
+        {
+            dataGridEnvanter.DataSource = db.TBLEnvanter.Where(x => x.UrunIsmi == txtArama.Text).ToList();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            Excel.Application excel = new Excel.Application();
+            excel.Visible = true;
+            object Missing = Type.Missing;
+            Workbook workbook = excel.Workbooks.Add(Missing);
+            Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+            int StartCol = 0;
+            int StartRow = 1;
+            for (int j = 1; j < dataGridEnvanter.Columns.Count - 4; j++)
+            {
+                Range myRange = (Range)sheet1.Cells[StartRow, StartCol + j];
+                myRange.Value2 = dataGridEnvanter.Columns[j].HeaderText;
+            }
+            StartRow++;
+            for (int i = 0; i < dataGridEnvanter.Rows.Count; i++)
+            {
+                for (int j = 1; j < dataGridEnvanter.Columns.Count - 4; j++)
+                {
+                    Range myRange = (Range)sheet1.Cells[StartRow + i, StartCol + j];
+                    myRange.Value2 = dataGridEnvanter[j, i].Value == null ? " " : dataGridEnvanter[j, i].Value;
+                    myRange.Select();
+                }
+            }
         }
     }
 }

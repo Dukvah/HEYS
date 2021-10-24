@@ -22,23 +22,27 @@ namespace HEYS
 
         private void FrmKullanıcıGiris_Load(object sender, EventArgs e)
         {
-            txtKullaniciAdi.Text = "Kullanıcı adnınızı giriniz";
+            txtKullaniciAdi.Text = "Kullanıcı adınızı giriniz";
             txtSifre.Text = "Şifrenizi giriniz";
 
         }
-        private void txtKullaniciAdi_Leave(object sender, EventArgs e)
-        {
-
-            if (string.IsNullOrWhiteSpace(txtKullaniciAdi.Text))
-                txtKullaniciAdi.Text = "Kullanıcı adnınızı giriniz";
-        }
         private void txtKullaniciAdi_Click(object sender, EventArgs e)
         {
-            if (txtKullaniciAdi.Text == "Kullanıcı adnınızı giriniz")
+            if (txtKullaniciAdi.Text == "Kullanıcı adınızı giriniz")
             {
                 txtKullaniciAdi.Text = "";
             }
         }
+            private void txtKullaniciAdi_Leave(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(txtKullaniciAdi.Text))
+            {
+                txtKullaniciAdi.Text = "Kullanıcı adınızı giriniz";
+            }
+        }
+       
+        
         private void txtSifre_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSifre.Text))
@@ -107,6 +111,11 @@ namespace HEYS
         }
 
         private void txtKullaniciAdi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
