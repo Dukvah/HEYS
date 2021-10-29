@@ -46,7 +46,6 @@ namespace HEYS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridEnvanter = new System.Windows.Forms.DataGridView();
-            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbArizaBirim = new System.Windows.Forms.ComboBox();
@@ -82,6 +81,8 @@ namespace HEYS
             this.btnExcel = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.lbl123 = new System.Windows.Forms.Label();
+            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Güncelle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEnvanter)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -265,21 +266,15 @@ namespace HEYS
             this.dataGridEnvanter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridEnvanter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridEnvanter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Sil});
+            this.Sil,
+            this.Güncelle});
             this.dataGridEnvanter.Location = new System.Drawing.Point(447, 112);
             this.dataGridEnvanter.Name = "dataGridEnvanter";
+            this.dataGridEnvanter.ReadOnly = true;
             this.dataGridEnvanter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridEnvanter.Size = new System.Drawing.Size(1103, 903);
             this.dataGridEnvanter.TabIndex = 1;
             this.dataGridEnvanter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEnvanter_CellContentClick);
-            // 
-            // Sil
-            // 
-            this.Sil.HeaderText = "";
-            this.Sil.Name = "Sil";
-            this.Sil.ReadOnly = true;
-            this.Sil.Text = "Sil";
-            this.Sil.UseColumnTextForButtonValue = true;
             // 
             // groupBox2
             // 
@@ -723,6 +718,21 @@ namespace HEYS
             this.lbl123.TabIndex = 1;
             this.lbl123.Text = "Envanter Sayısı :";
             // 
+            // Sil
+            // 
+            this.Sil.HeaderText = "";
+            this.Sil.Name = "Sil";
+            this.Sil.Text = "Sil";
+            this.Sil.UseColumnTextForButtonValue = true;
+            // 
+            // Güncelle
+            // 
+            this.Güncelle.HeaderText = "";
+            this.Güncelle.Name = "Güncelle";
+            this.Güncelle.ReadOnly = true;
+            this.Güncelle.Text = "Güncelle";
+            this.Güncelle.UseColumnTextForButtonValue = true;
+            // 
             // FrmEnvanter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -800,7 +810,6 @@ namespace HEYS
         private System.Windows.Forms.RadioButton rbtnAzalanStok;
         private System.Windows.Forms.RadioButton rbtnArtanStok;
         private System.Windows.Forms.RadioButton rbtnTarihEski;
-        private System.Windows.Forms.DataGridViewButtonColumn Sil;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -814,5 +823,7 @@ namespace HEYS
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lbl123;
+        private System.Windows.Forms.DataGridViewButtonColumn Sil;
+        private System.Windows.Forms.DataGridViewButtonColumn Güncelle;
     }
 }

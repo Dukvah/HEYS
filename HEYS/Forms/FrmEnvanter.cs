@@ -30,11 +30,10 @@ namespace HEYS
         public void EnvanterListele()
         {
             dataGridEnvanter.DataSource = db.TBLEnvanter.ToList();
-            dataGridEnvanter.Columns[8].Visible = false;
             dataGridEnvanter.Columns[9].Visible = false;
             dataGridEnvanter.Columns[10].Visible = false;
             dataGridEnvanter.Columns[11].Visible = false;
-            lblEnvanterSayisi.Text = Convert.ToString(dataGridEnvanter.RowCount);
+            dataGridEnvanter.Columns[12].Visible = false;
             var sorgu = from p in db.TBLEnvanter
                         where p.StokDurum != null
                         select p;
@@ -47,6 +46,19 @@ namespace HEYS
                 }
                 lblToplamStok.Text = Convert.ToString(a);
             }
+            int g = dataGridEnvanter.RowCount;
+            CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dataGridEnvanter.DataSource];
+            currencyManager1.SuspendBinding();
+            for (int i = 0; i < dataGridEnvanter.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(dataGridEnvanter.Rows[i].Cells[4].Value) == 0)
+                {
+                    g--;
+                    dataGridEnvanter.Rows[i].Visible = false;
+                }
+                lblEnvanterSayisi.Text = Convert.ToString(g);
+            }
+            currencyManager1.ResumeBinding();
         }
         private void btnEnvanterEkle_Click(object sender, EventArgs e)
         {
@@ -67,7 +79,6 @@ namespace HEYS
             catch (Exception ex)
             {
                 MessageBox.Show("hata!" + ex.Message);
-
             }
         }
         public void DeleteEnvanter(int id)
@@ -85,33 +96,70 @@ namespace HEYS
             tbEnvanterSorumluPersonel.Text = "";
             tbEnvanterSorumluBolum.Text = "";
         }
-
+        public void EnvanterUpdate(int id)
+        {
+            var x = db.TBLEnvanter.Find(id);
+            x.UrunIsmi = tbEnvanterUrunIsim.Text;
+            x.StokDurum = Convert.ToInt32(tbEnvanterAdet.Text);
+            x.MalzemeDurum = cbEnvanterMalzemeDurum.SelectedItem.ToString();
+            x.GirisTarihi = dtpEnvanterTarih.Value;
+            x.BagliPersonel = tbEnvanterSorumluPersonel.Text;
+            x.BagliBolum = tbEnvanterSorumluBolum.Text;
+            db.SaveChanges();
+        }
         private void btnArizaGonder_Click(object sender, EventArgs e)
         {
             if (cbArizaBirim.SelectedItem.ToString() == "Teknik Servis")
             {
-                TBLTeknikServis teknikServis = new TBLTeknikServis();
-                teknikServis.UrunIsmi = tbArizaUrunIsim.Text;
-                teknikServis.Adet = Convert.ToInt32(tbArizaAdet.Text);
-                teknikServis.GelisTarihi = dtpArizaTarih.Value;
-                teknikServis.GelisSebebi = tbArizaGonderimSebebi.Text;
-                db.TBLTeknikServis.Add(teknikServis);
+                int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
+                var env = db.TBLEnvanter.Find(id);
+                TBLTeknikServis teknikServisEkle = new TBLTeknikServis();
+                teknikServisEkle.EnvanterId = Convert.ToInt32(env.EnvanterID.ToString());
+                teknikServisEkle.UrunIsmi = tbArizaUrunIsim.Text;
+                teknikServisEkle.Adet = Convert.ToInt32(tbArizaAdet.Text);
+                teknikServisEkle.GelisTarihi = dtpArizaTarih.Value;
+                teknikServisEkle.GelisSebebi = tbArizaGonderimSebebi.Text;
+                teknikServisEkle.Durum = "Beklemede";
+                int a = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                if (a < 0)
+                {
+                MessageBox.Show("Hata! Ürün Adedi Yanlış.");
+                EnvanterListele();
+                }
+                else
+                {
+                db.TBLTeknikServis.Add(teknikServisEkle);
                 db.SaveChanges();
-
+                env.StokDurum = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                }
+                EnvanterListele();
             }
             else if (cbArizaBirim.SelectedItem.ToString() == "Bilgi İşlem")
             {
-                TBLBilgiIslem bilgiIslem = new TBLBilgiIslem();
-                bilgiIslem.UrunIsmi = tbArizaUrunIsim.Text;
-                bilgiIslem.Adet = Convert.ToInt32(tbArizaAdet.Text);
-                bilgiIslem.GirisTarihi = dtpArizaTarih.Value;
-                bilgiIslem.GelisSebebi = tbArizaGonderimSebebi.Text;
-                db.TBLBilgiIslem.Add(bilgiIslem);
-                db.SaveChanges();
-
+                int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
+                var env = db.TBLEnvanter.Find(id);
+                TBLBilgiIslem bilgiIslemEkle = new TBLBilgiIslem();
+                bilgiIslemEkle.EnvanterId = Convert.ToInt32(env.EnvanterID.ToString());
+                bilgiIslemEkle.UrunIsmi = tbArizaUrunIsim.Text;
+                bilgiIslemEkle.Adet = Convert.ToInt32(tbArizaAdet.Text);
+                bilgiIslemEkle.GirisTarihi = dtpArizaTarih.Value;
+                bilgiIslemEkle.GelisSebebi = tbArizaGonderimSebebi.Text;
+                bilgiIslemEkle.Durum = "Beklemede";
+                int a = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                if (a < 0)
+                {
+                     MessageBox.Show("Hata! Ürün Adedi Yanlış.");
+                     EnvanterListele();
+                }
+                else
+                {
+                     db.TBLBilgiIslem.Add(bilgiIslemEkle);
+                     db.SaveChanges();
+                     env.StokDurum = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                }
+                EnvanterListele();
             }
         }
-
         private void btnArizaTemizle_Click(object sender, EventArgs e)
         {
             tbArizaUrunIsim.Text = "";
@@ -121,16 +169,29 @@ namespace HEYS
 
         private void dataGridEnvanter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            tbArizaUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[2].Value.ToString();
-            tbArizaAdet.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
             if (e.ColumnIndex == 0)
             {
-                int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[1].Value.ToString());
+                int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
                 DeleteEnvanter(id);
                 EnvanterListele();
                 tbArizaUrunIsim.Text = "";
                 tbArizaAdet.Text = "";
             }
+            if (e.ColumnIndex == 1)
+            {
+                int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
+                EnvanterUpdate(id);
+            }
+            tbArizaUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
+            tbArizaAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
+            dtpArizaTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
+
+            tbEnvanterUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
+            tbEnvanterAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
+            cbEnvanterMalzemeDurum.SelectedItem = dataGridEnvanter.CurrentRow.Cells[5].Value.ToString();
+            dtpEnvanterTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
+            tbEnvanterSorumluPersonel.Text = dataGridEnvanter.CurrentRow.Cells[7].Value.ToString();
+            tbEnvanterSorumluBolum.Text = dataGridEnvanter.CurrentRow.Cells[8].Value.ToString();
         }
         private void btnEnvanterSirala_Click(object sender, EventArgs e)
         {
@@ -165,7 +226,7 @@ namespace HEYS
                 dataGridEnvanter.DataSource = liste6;
             }
         }
-        
+
 
         private void btnSiralaYenile_Click(object sender, EventArgs e)
         {

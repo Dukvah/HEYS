@@ -16,7 +16,7 @@ namespace HEYS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmKullanıcıGiris());
+            Application.Run(new FrmMenu());
         }
     }
 }
