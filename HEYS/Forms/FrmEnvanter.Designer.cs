@@ -46,6 +46,8 @@ namespace HEYS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridEnvanter = new System.Windows.Forms.DataGridView();
+            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Güncelle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbArizaBirim = new System.Windows.Forms.ComboBox();
@@ -81,8 +83,6 @@ namespace HEYS
             this.btnExcel = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.lbl123 = new System.Windows.Forms.Label();
-            this.Sil = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Güncelle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEnvanter)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -275,6 +275,22 @@ namespace HEYS
             this.dataGridEnvanter.Size = new System.Drawing.Size(1103, 903);
             this.dataGridEnvanter.TabIndex = 1;
             this.dataGridEnvanter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEnvanter_CellContentClick);
+            // 
+            // Sil
+            // 
+            this.Sil.HeaderText = "";
+            this.Sil.Name = "Sil";
+            this.Sil.ReadOnly = true;
+            this.Sil.Text = "Sil";
+            this.Sil.UseColumnTextForButtonValue = true;
+            // 
+            // Güncelle
+            // 
+            this.Güncelle.HeaderText = "";
+            this.Güncelle.Name = "Güncelle";
+            this.Güncelle.ReadOnly = true;
+            this.Güncelle.Text = "Güncelle";
+            this.Güncelle.UseColumnTextForButtonValue = true;
             // 
             // groupBox2
             // 
@@ -717,21 +733,6 @@ namespace HEYS
             this.lbl123.Size = new System.Drawing.Size(153, 23);
             this.lbl123.TabIndex = 1;
             this.lbl123.Text = "Envanter Sayısı :";
-            // 
-            // Sil
-            // 
-            this.Sil.HeaderText = "";
-            this.Sil.Name = "Sil";
-            this.Sil.Text = "Sil";
-            this.Sil.UseColumnTextForButtonValue = true;
-            // 
-            // Güncelle
-            // 
-            this.Güncelle.HeaderText = "";
-            this.Güncelle.Name = "Güncelle";
-            this.Güncelle.ReadOnly = true;
-            this.Güncelle.Text = "Güncelle";
-            this.Güncelle.UseColumnTextForButtonValue = true;
             // 
             // FrmEnvanter
             // 

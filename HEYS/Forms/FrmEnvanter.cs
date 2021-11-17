@@ -25,7 +25,7 @@ namespace HEYS
         private void FrmEnvanter_Load(object sender, EventArgs e)
         {
             EnvanterListele();
-            txtArama.Text = "Arama";
+            txtArama.Text = "Arama"; 
         }
         public void EnvanterListele()
         {
@@ -123,14 +123,14 @@ namespace HEYS
                 int a = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
                 if (a < 0)
                 {
-                MessageBox.Show("Hata! Ürün Adedi Yanlış.");
-                EnvanterListele();
+                    MessageBox.Show("Hata! Ürün Adedi Yanlış.");
+                    EnvanterListele();
                 }
                 else
                 {
-                db.TBLTeknikServis.Add(teknikServisEkle);
-                db.SaveChanges();
-                env.StokDurum = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                    env.StokDurum = a;
+                    db.TBLTeknikServis.Add(teknikServisEkle);
+                    db.SaveChanges();
                 }
                 EnvanterListele();
             }
@@ -148,14 +148,14 @@ namespace HEYS
                 int a = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
                 if (a < 0)
                 {
-                     MessageBox.Show("Hata! Ürün Adedi Yanlış.");
-                     EnvanterListele();
+                    MessageBox.Show("Hata! Ürün Adedi Yanlış.");
+                    EnvanterListele();
                 }
                 else
                 {
-                     db.TBLBilgiIslem.Add(bilgiIslemEkle);
-                     db.SaveChanges();
-                     env.StokDurum = env.StokDurum.Value - Convert.ToInt32(tbArizaAdet.Text);
+                    env.StokDurum = a;
+                    db.TBLBilgiIslem.Add(bilgiIslemEkle);
+                    db.SaveChanges();
                 }
                 EnvanterListele();
             }
@@ -169,6 +169,8 @@ namespace HEYS
 
         private void dataGridEnvanter_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+
             if (e.ColumnIndex == 0)
             {
                 int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
@@ -181,17 +183,24 @@ namespace HEYS
             {
                 int id = Convert.ToInt32(dataGridEnvanter.CurrentRow.Cells[2].Value.ToString());
                 EnvanterUpdate(id);
+                EnvanterListele();
             }
-            tbArizaUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
-            tbArizaAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
-            dtpArizaTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
+            else
+            {
+                tbArizaUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
+                tbArizaAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
+                dtpArizaTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
 
-            tbEnvanterUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
-            tbEnvanterAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
-            cbEnvanterMalzemeDurum.SelectedItem = dataGridEnvanter.CurrentRow.Cells[5].Value.ToString();
-            dtpEnvanterTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
-            tbEnvanterSorumluPersonel.Text = dataGridEnvanter.CurrentRow.Cells[7].Value.ToString();
-            tbEnvanterSorumluBolum.Text = dataGridEnvanter.CurrentRow.Cells[8].Value.ToString();
+                tbEnvanterUrunIsim.Text = dataGridEnvanter.CurrentRow.Cells[3].Value.ToString();
+                tbEnvanterAdet.Text = dataGridEnvanter.CurrentRow.Cells[4].Value.ToString();
+                cbEnvanterMalzemeDurum.SelectedItem = dataGridEnvanter.CurrentRow.Cells[5].Value.ToString();
+                dtpEnvanterTarih.Value = (DateTime)dataGridEnvanter.CurrentRow.Cells[6].Value;
+                tbEnvanterSorumluPersonel.Text = dataGridEnvanter.CurrentRow.Cells[7].Value.ToString();
+                tbEnvanterSorumluBolum.Text = dataGridEnvanter.CurrentRow.Cells[8].Value.ToString();
+            }
+            
+
+           
         }
         private void btnEnvanterSirala_Click(object sender, EventArgs e)
         {

@@ -33,6 +33,7 @@ namespace HEYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKullanıcıGiris));
             System.Windows.Forms.PictureBox pictureBox2;
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHata = new System.Windows.Forms.Label();
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnGirisYap = new System.Windows.Forms.Button();
             this.txtSifre = new System.Windows.Forms.TextBox();
@@ -69,6 +70,7 @@ namespace HEYS
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.lblHata);
             this.panel1.Controls.Add(this.btnCikis);
             this.panel1.Controls.Add(this.btnGirisYap);
             this.panel1.Controls.Add(pictureBox2);
@@ -82,9 +84,22 @@ namespace HEYS
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // lblHata
+            // 
+            this.lblHata.AutoSize = true;
+            this.lblHata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblHata.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblHata.Location = new System.Drawing.Point(297, 287);
+            this.lblHata.Name = "lblHata";
+            this.lblHata.Size = new System.Drawing.Size(198, 13);
+            this.lblHata.TabIndex = 8;
+            this.lblHata.Text = "Kullanıcı adınızı ve şifrenizi kontrol ediniz.";
+            this.lblHata.Visible = false;
+            // 
             // btnCikis
             // 
             this.btnCikis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnCikis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCikis.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCikis.Location = new System.Drawing.Point(392, 301);
             this.btnCikis.Name = "btnCikis";
@@ -97,6 +112,7 @@ namespace HEYS
             // btnGirisYap
             // 
             this.btnGirisYap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
+            this.btnGirisYap.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGirisYap.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnGirisYap.Location = new System.Drawing.Point(300, 301);
             this.btnGirisYap.Name = "btnGirisYap";
@@ -108,7 +124,7 @@ namespace HEYS
             // 
             // txtSifre
             // 
-            this.txtSifre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtSifre.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSifre.Location = new System.Drawing.Point(327, 264);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(149, 20);
@@ -119,7 +135,7 @@ namespace HEYS
             // 
             // txtKullaniciAdi
             // 
-            this.txtKullaniciAdi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.txtKullaniciAdi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtKullaniciAdi.Location = new System.Drawing.Point(327, 221);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Size = new System.Drawing.Size(149, 20);
@@ -156,5 +172,6 @@ namespace HEYS
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnGirisYap;
+        private System.Windows.Forms.Label lblHata;
     }
 }

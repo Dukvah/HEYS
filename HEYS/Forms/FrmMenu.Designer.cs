@@ -35,7 +35,6 @@ namespace HEYS
             this.btnTeknikServis = new System.Windows.Forms.Button();
             this.btnPersonel = new System.Windows.Forms.Button();
             this.btnBölümler = new System.Windows.Forms.Button();
-            this.btnAyarlar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCikis = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -89,7 +88,7 @@ namespace HEYS
             this.btnPersonel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPersonel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonel.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPersonel.Location = new System.Drawing.Point(435, 826);
+            this.btnPersonel.Location = new System.Drawing.Point(632, 775);
             this.btnPersonel.Name = "btnPersonel";
             this.btnPersonel.Size = new System.Drawing.Size(280, 100);
             this.btnPersonel.TabIndex = 17;
@@ -103,7 +102,7 @@ namespace HEYS
             this.btnBölümler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBölümler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBölümler.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBölümler.Location = new System.Drawing.Point(821, 826);
+            this.btnBölümler.Location = new System.Drawing.Point(1016, 775);
             this.btnBölümler.Name = "btnBölümler";
             this.btnBölümler.Size = new System.Drawing.Size(280, 100);
             this.btnBölümler.TabIndex = 18;
@@ -111,25 +110,10 @@ namespace HEYS
             this.btnBölümler.UseVisualStyleBackColor = false;
             this.btnBölümler.Click += new System.EventHandler(this.btnBölümler_Click);
             // 
-            // btnAyarlar
-            // 
-            this.btnAyarlar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(105)))), ((int)(((byte)(128)))));
-            this.btnAyarlar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAyarlar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAyarlar.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAyarlar.Location = new System.Drawing.Point(1198, 826);
-            this.btnAyarlar.Name = "btnAyarlar";
-            this.btnAyarlar.Size = new System.Drawing.Size(280, 100);
-            this.btnAyarlar.TabIndex = 19;
-            this.btnAyarlar.Text = "Ayarlar";
-            this.btnAyarlar.UseVisualStyleBackColor = false;
-            this.btnAyarlar.Click += new System.EventHandler(this.btnAyarlar_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnCikis);
-            this.panel1.Controls.Add(this.btnAyarlar);
             this.panel1.Controls.Add(this.btnBölümler);
             this.panel1.Controls.Add(this.btnPersonel);
             this.panel1.Controls.Add(this.btnTeknikServis);
@@ -182,7 +166,6 @@ namespace HEYS
         private System.Windows.Forms.Button btnTeknikServis;
         private System.Windows.Forms.Button btnPersonel;
         private System.Windows.Forms.Button btnBölümler;
-        private System.Windows.Forms.Button btnAyarlar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCikis;
     }

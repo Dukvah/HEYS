@@ -72,7 +72,10 @@ namespace HEYS
             }
             else
             {
-                MessageBox.Show("Hatalı giriş");
+                lblHata.Visible = true;
+                txtKullaniciAdi.Text = "Kullanıcı adınızı giriniz";
+                txtSifre.Text = "Şifrenizi giriniz";
+                txtSifre.UseSystemPasswordChar = false;
             }
         }
         public bool KullaniciKontrol(string kAdi, string kParola)

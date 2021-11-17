@@ -50,14 +50,6 @@ namespace HEYS
             this.Hide();
             frmBolumler.Show();
         }
-
-        private void btnAyarlar_Click(object sender, EventArgs e)
-        {
-            FrmAyarlar frmAyarlar = new FrmAyarlar();
-            this.Hide();
-            frmAyarlar.Show();
-        }
-
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Application.Exit();

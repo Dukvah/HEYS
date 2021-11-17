@@ -41,14 +41,6 @@ namespace HEYS
             this.Hide();
             frmEnvanter.Show();
         }
-
-        private void btnAyarlaraGit_Click(object sender, EventArgs e)
-        {
-            FrmAyarlar frmAyarlar = new FrmAyarlar();
-            this.Hide();
-            frmAyarlar.Show();
-        }
-
         private void txtArama_Click(object sender, EventArgs e)
         {
             if (txtArama.Text == "Arama")
@@ -138,7 +130,7 @@ namespace HEYS
             }
             else
             {
-                bi.Adet = bi.Adet.Value - Convert.ToInt32(tbEnvanterGonderAdet.Text);
+                bi.Adet = a;
                 if (bi.Adet.Value == 0)
                 {
                     bi.Durum = "İşlem Tamamlandı";

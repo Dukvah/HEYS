@@ -63,12 +63,12 @@ namespace HEYS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblEnvanterSayisi = new System.Windows.Forms.Label();
             this.lblPersonelSayisi = new System.Windows.Forms.Label();
             this.btnExcel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPersonel)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -119,6 +119,7 @@ namespace HEYS
             this.Sil});
             this.dataGridPersonel.Location = new System.Drawing.Point(447, 112);
             this.dataGridPersonel.Name = "dataGridPersonel";
+            this.dataGridPersonel.ReadOnly = true;
             this.dataGridPersonel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridPersonel.Size = new System.Drawing.Size(1103, 903);
             this.dataGridPersonel.TabIndex = 24;
@@ -128,6 +129,7 @@ namespace HEYS
             // 
             this.Sil.HeaderText = "";
             this.Sil.Name = "Sil";
+            this.Sil.ReadOnly = true;
             this.Sil.Text = "Sil";
             this.Sil.ToolTipText = "Sil";
             this.Sil.UseColumnTextForButtonValue = true;
@@ -485,6 +487,16 @@ namespace HEYS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rapor";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(183, 157);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(65, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblEnvanterSayisi
             // 
             this.lblEnvanterSayisi.AutoSize = true;
@@ -538,16 +550,6 @@ namespace HEYS
             this.label6.Size = new System.Drawing.Size(148, 23);
             this.label6.TabIndex = 1;
             this.label6.Text = "Personel Sayısı :";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(183, 157);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(65, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmPersonel
             // 

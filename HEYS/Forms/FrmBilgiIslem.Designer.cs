@@ -46,7 +46,6 @@ namespace HEYS
             this.dataGridBilgiIslem = new System.Windows.Forms.DataGridView();
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnAyarlaraGit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbEnvanterGonderAdet = new System.Windows.Forms.TextBox();
             this.tbEnvantereGonderUrunIsim = new System.Windows.Forms.TextBox();
@@ -294,23 +293,6 @@ namespace HEYS
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnAyarlaraGit
-            // 
-            this.btnAyarlaraGit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAyarlaraGit.BackColor = System.Drawing.Color.Transparent;
-            this.btnAyarlaraGit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyarlaraGit.BackgroundImage")));
-            this.btnAyarlaraGit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAyarlaraGit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAyarlaraGit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAyarlaraGit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAyarlaraGit.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAyarlaraGit.Location = new System.Drawing.Point(1774, 12);
-            this.btnAyarlaraGit.Name = "btnAyarlaraGit";
-            this.btnAyarlaraGit.Size = new System.Drawing.Size(40, 40);
-            this.btnAyarlaraGit.TabIndex = 29;
-            this.btnAyarlaraGit.UseVisualStyleBackColor = false;
-            this.btnAyarlaraGit.Click += new System.EventHandler(this.btnAyarlaraGit_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -517,7 +499,6 @@ namespace HEYS
             this.ClientSize = new System.Drawing.Size(1940, 1061);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnAyarlaraGit);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.dataGridBilgiIslem);
@@ -558,7 +539,6 @@ namespace HEYS
         private System.Windows.Forms.DataGridView dataGridBilgiIslem;
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnAyarlaraGit;
         private System.Windows.Forms.Button btnAra;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox tbEnvanterGonderAdet;

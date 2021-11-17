@@ -97,6 +97,7 @@ namespace HEYS
             this.dataGridBolumler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBolumler.Location = new System.Drawing.Point(67, 112);
             this.dataGridBolumler.Name = "dataGridBolumler";
+            this.dataGridBolumler.ReadOnly = true;
             this.dataGridBolumler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridBolumler.Size = new System.Drawing.Size(1483, 903);
             this.dataGridBolumler.TabIndex = 26;
@@ -252,6 +253,7 @@ namespace HEYS
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.pictureBox2);
             this.groupBox2.Controls.Add(this.lblBolumSayisi);
